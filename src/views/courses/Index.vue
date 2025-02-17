@@ -1,7 +1,7 @@
 
 <template>
 
-    <h1>Bem vindo(a) {{  }}</h1>
+    <h1>Bem vindo(a)</h1>
     <div>
         <form action="" class=" input-group mb-3 d-flex flex-row bd-highlight mb-3" method="POST">
 
@@ -35,18 +35,20 @@
 
 <script>
 import { baseAPI } from '@/api/axios_api'
-import { useRoute } from 'vue-router';
+// import { useRoute } from 'vue-router';
+// import { userStore } from 'vuex'
+// import { computed } from 'vue';
+
+
 
 export default {
     data() {
-
-        const router = useRoute()
-
-        console.log(router)
+        // const store = userStore()
+        // var messagesApp = computed(()=> store.state.messagesApp)
 
         return {
 
-            apiData: [],
+            apiData: []
         }
     },
     mounted() {
