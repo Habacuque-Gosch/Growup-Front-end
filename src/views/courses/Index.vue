@@ -1,7 +1,7 @@
 
 <template>
 
-    <h1>Bem vindo(a) {{ username }}</h1>
+    <h1>Bem vindo(a) {{ user.value.username }}</h1>
     <div>
         <form action="" class=" input-group mb-3 d-flex flex-row bd-highlight mb-3" method="POST">
 
@@ -40,10 +40,11 @@ import { useStore } from 'vuex';
 export default {
     data() {
         const store = useStore()
-        var username = store.state.username
+        var user = store.state.user
+        console.log('USER', user)
         return {
             apiData: [],
-            username
+            user
         }
     },
     mounted() {

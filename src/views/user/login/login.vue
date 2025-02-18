@@ -79,7 +79,6 @@ export default {
                         store.commit('setToken', token)
                         baseAPI.defaults.headers.common['Authorization'] = token
                         localStorage.setItem('token', token)
-                        localStorage.setItem('username', userData.value.username)
                         router.replace({name: 'index'})
                     } else {
                         router.push({name: 'login'})

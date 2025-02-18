@@ -28,8 +28,8 @@ import { useRouter } from 'vue-router';
 
 export default {
     setup(){
-
-        const newCourse = ref({title: '', slug: '', creation: ''})
+        const userCurrent = localStorage.getItem('user_id')
+        const newCourse = ref({user: userCurrent, title: '', slug: '', creation: ''})
         const errorMessage = ref('')
         const router = useRouter()
 
@@ -51,10 +51,10 @@ export default {
                 } else {
                     let config = {
                         headers: {
-                            Authorization: 'Token c2ef737289fabeae006a6b01c9ecb40aa088d046',
+                            Authorization: localStorage.getItem('token'),
                         }
                     }
-                    await baseAPI.post('courses/', newCourse.value, config)
+                    await baseAPI.post('v2/courses/', newCourse.value, config)
                     // console.log('requestss: ')
                     router.push({ name: 'index'})
                 }
