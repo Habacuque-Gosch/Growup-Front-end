@@ -1,3 +1,4 @@
+import { baseAPI } from '@/api/axios_api';
 import { createStore } from 'vuex';
 
 
@@ -6,7 +7,8 @@ const store = createStore({
     state: {
         messagesApp: [],
         isAuthenticated: localStorage.getItem('token') ? true : false,
-        token: localStorage.getItem('token')
+        token: localStorage.getItem('token'),
+        username: localStorage.getItem('username')
     },
 
     getters: {},

@@ -1,7 +1,7 @@
 
 <template>
 
-    <h1>Bem vindo(a)</h1>
+    <h1>Bem vindo(a) {{ username }}</h1>
     <div>
         <form action="" class=" input-group mb-3 d-flex flex-row bd-highlight mb-3" method="POST">
 
@@ -35,11 +35,15 @@
 
 <script>
 import { baseAPI } from '@/api/axios_api'
+import { useStore } from 'vuex';
 
 export default {
     data() {
+        const store = useStore()
+        var username = store.state.username
         return {
-            apiData: []
+            apiData: [],
+            username
         }
     },
     mounted() {

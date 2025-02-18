@@ -10,8 +10,6 @@
     
     // const isAuth = store.state.isAuthenticated
     // const token_auth_teste = store.state.token
-    // console.log('AUTH: ',isAuth)
-    // console.log('TOKEN: ',token_auth_teste) 
     
 </script>
 
