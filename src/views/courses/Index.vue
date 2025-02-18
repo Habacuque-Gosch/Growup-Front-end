@@ -14,7 +14,7 @@
 
     <h2>Cursos</h2>
 
-    <div v-if="apiData">
+    <div v-if="apiData != ''">
 
         <div class="card" v-for="course in apiData" :key="course.id">
             <div class="card-body">
@@ -35,17 +35,9 @@
 
 <script>
 import { baseAPI } from '@/api/axios_api'
-// import { useRoute } from 'vue-router';
-import { computed } from 'vue';
-import { useStore } from 'vuex';
-
-
 
 export default {
     data() {
-        const store = useStore()
-        var messagesApp = computed(()=> store.state.messagesApp)
-
         return {
             apiData: []
         }

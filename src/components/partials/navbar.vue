@@ -1,6 +1,3 @@
-<script>
-
-</script>
 
 <template>
 
@@ -23,10 +20,14 @@
                         Profile
                     </a>
                     <ul class="dropdown-menu">
-                        <RouterLink to="/user/register" class="dropdown-item"><i class="bi bi-person"></i> Profile</RouterLink>
-                        <RouterLink to="/user/login" class="dropdown-item"><i class="bi bi-person-circle"></i> Login</RouterLink>
-                        <RouterLink to="/user/register" class="dropdown-item"><i class="bi bi-person-circle"></i> Register</RouterLink>
-                        <RouterLink to="/user/register" class="dropdown-item"><i class="bi bi-arrow-left"></i> Logout</RouterLink>
+                        <div v-if="isAuth">
+                            <RouterLink to="/user/register" class="dropdown-item"><i class="bi bi-person"></i> Profile</RouterLink>
+                            <a @click="logout()" class="dropdown-item"><i class="bi bi-arrow-left"></i> Logout</a>
+                        </div>
+                        <div v-else>
+                            <RouterLink to="/user/login" class="dropdown-item"><i class="bi bi-person-circle"></i> Login</RouterLink>
+                            <RouterLink to="/user/register" class="dropdown-item"><i class="bi bi-person-circle"></i> Register</RouterLink>
+                        </div>
                     </ul>
                 </li>
             </ul>
@@ -35,3 +36,28 @@
     </nav>
 
 </template>
+
+<script>
+    import { baseAPI } from '@/api/axios_api';
+    import { useRouter } from 'vue-router';
+    import { useStore } from 'vuex';
+    
+
+    export default {
+        setup(){
+            var router = useRouter()
+            var store = useStore()
+            var isAuth = store.state.isAuthenticated
+
+            function logout(){
+                baseAPI.defaults.headers.common['Authorization'] = ''
+                localStorage.removeItem('token')
+                store.commit('removeToken')
+                router.replace({name: 'login'})
+            }
+            return {isAuth, logout}
+        },
+    }
+
+
+</script>

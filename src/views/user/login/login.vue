@@ -56,6 +56,7 @@
 import { ref } from 'vue';
 import { baseAPI } from '@/api/axios_api';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 
 export default {
@@ -63,13 +64,27 @@ export default {
 
         const userData = ref({username: '', password: ''})
         const router = useRouter()
+        const store = useStore()
         const errorMessage = ref('')
 
         const loginFunction = async()=> {
 
             try {
-                const request_user = await baseAPI.post('users/token/', userData.value)
-                router.push({name: 'index'})
+                const request_user = await baseAPI.post('users/auth/', userData.value)
+                .then(response => {
+                    const token = response.data.token
+                    if(token){
+                        // baseAPI.defaults.headers.common['Authorization'] = ''
+                        // localStorage.removeItem('token')
+                        store.commit('setToken', token)
+                        baseAPI.defaults.headers.common['Authorization'] = token
+                        localStorage.setItem('token', token)
+                        router.replace({name: 'index'})
+                    } else {
+                        router.push({name: 'login'})
+                    }
+
+                })
             }
 
             catch (error) {
