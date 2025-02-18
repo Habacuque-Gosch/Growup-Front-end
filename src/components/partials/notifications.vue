@@ -1,17 +1,20 @@
 <template>
 
-    <p v-if="errorFlash" class="alert alert-info" role="alert">{{ errorFlash }}</p>
+    <p v-if="messagesApp != ''" class="alert alert-info" role="alert">{{ messagesApp[0] }}</p>
 
 </template>
 
 
 <script>
-import { ref } from 'vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+
 export default {
     setup(){
-        var errorFlash = ref('')
+        const store = useStore()
+        var messagesApp = computed(()=> store.state.messagesApp)
         // errorMessages = 'erro'
-        return {errorFlash}
+        return {messagesApp}
     }
 }
 </script>

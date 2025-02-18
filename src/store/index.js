@@ -1,10 +1,10 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
 
 
 
 const store = createStore({
     state: {
-        messagesApp: ['erro de teste']
+        messagesApp: []
     },
     getters: {},
     mutations: {},

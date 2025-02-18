@@ -62,13 +62,7 @@ export default {
                     errorMessage.value = 'Esse slug já está atribuído a outro curso'
                 } else {
 
-                    let config = {
-                        headers: {
-                            Authorization: 'Token c2ef737289fabeae006a6b01c9ecb40aa088d046',
-                        }
-                    }
-                    await baseAPI.put(`v2/courses/${courseId}/`, editCourseData.value, config)
-                    // console.log('requestss: ')
+                    await baseAPI.put(`v2/courses/${courseId}/`, editCourseData.value)
                     router.push({ name: 'index'})
                 }
             }

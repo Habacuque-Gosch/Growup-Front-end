@@ -36,18 +36,17 @@
 <script>
 import { baseAPI } from '@/api/axios_api'
 // import { useRoute } from 'vue-router';
-// import { userStore } from 'vuex'
-// import { computed } from 'vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 
 
 export default {
     data() {
-        // const store = userStore()
-        // var messagesApp = computed(()=> store.state.messagesApp)
+        const store = useStore()
+        var messagesApp = computed(()=> store.state.messagesApp)
 
         return {
-
             apiData: []
         }
     },
