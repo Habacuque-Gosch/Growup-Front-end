@@ -41,7 +41,6 @@ export default {
     data() {
         const store = useStore()
         var user = store.state.user
-        console.log('USER', user)
         return {
             apiData: [],
             user
