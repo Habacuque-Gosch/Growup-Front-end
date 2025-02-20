@@ -14,14 +14,15 @@ async function request_user(){
             userData.value = response_user.data.results[0]
             return userData
         })
-        // .catch(error=> {
-        //     console.log(error)
-        //     return userData.value= error
-        // }
-        // )
+        .catch(error=> {
+            console.log(error)
+            return userData
+        }
+        )
     } else {
         console.log('token n existe')
-        router.replace({name: 'login'})
+        // router.replace({name: 'login'})
+        return userData
     }
 
 }
