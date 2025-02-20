@@ -21,12 +21,12 @@
                     </a>
                     <ul class="dropdown-menu">
                         <div v-if="isAuth">
-                            <RouterLink to="/user/register" class="dropdown-item"><i class="bi bi-person"></i> Profile</RouterLink>
+                            <RouterLink to="/user/profile/" class="dropdown-item"><i class="bi bi-person"></i> Profile</RouterLink>
                             <a @click="logout()" class="dropdown-item"><i class="bi bi-arrow-left"></i> Logout</a>
                         </div>
                         <div v-else>
-                            <RouterLink to="/user/login" class="dropdown-item"><i class="bi bi-person-circle"></i> Login</RouterLink>
-                            <RouterLink to="/user/register" class="dropdown-item"><i class="bi bi-person-circle"></i> Register</RouterLink>
+                            <RouterLink to="/user/login/" class="dropdown-item"><i class="bi bi-person-circle"></i> Login</RouterLink>
+                            <RouterLink to="/user/register/" class="dropdown-item"><i class="bi bi-person-circle"></i> Register</RouterLink>
                         </div>
                     </ul>
                 </li>

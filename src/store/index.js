@@ -1,18 +1,30 @@
 import { baseAPI } from '@/api/axios_api';
+import { useRouter } from 'vue-router';
 import { createStore } from 'vuex';
 
 
 const token = localStorage.getItem('token')
 const userData = []
+var router = useRouter()
 
 async function request_user(){
-    await baseAPI.get(`users/get-user-by-token/${token}/`)
-    .then(response_user => {
-        userData.value = response_user.data.results[0]
-        return userData
-    })
+    if(token){
+        await baseAPI.get(`users/get-user-by-token/${token}/`)
+        .then(response_user => {
+            userData.value = response_user.data.results[0]
+            return userData
+        })
+        // .catch(error=> {
+        //     console.log(error)
+        //     return userData.value= error
+        // }
+        // )
+    } else {
+        console.log('token n existe')
+        router.replace({name: 'login'})
+    }
+
 }
-// .catch()
 
 request_user()
 
