@@ -47,7 +47,14 @@ export default {
         }
     },
     mounted() {
-        baseAPI.get('v2/courses/')
+        let store_mng = useStore()
+        let token = store_mng.state.token
+        let config = {
+            headers: {
+                Authorization: 'Token ' + token,
+            }
+        }
+        baseAPI.get('v2/courses/', config)
         .then(res => {
             this.apiData = res.data.results
         })

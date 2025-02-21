@@ -9,7 +9,12 @@ const userData = []
 
 async function request_user(){
     if(token){
-        await baseAPI.get(`users/get-user-by-token/${token}/`)
+        let config = {
+            headers: {
+                Authorization: 'Token ' + token,
+            }
+        }
+        await baseAPI.get(`users/get-user-by-token/${token}/`, config)
         .then(response_user => {
             userData.value = response_user.data.results[0]
             return userData
