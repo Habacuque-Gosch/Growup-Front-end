@@ -25,6 +25,9 @@
 import { ref } from 'vue';
 import { baseAPI } from '@/api/axios_api'
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
+
 
 export default {
     setup(){
@@ -32,6 +35,12 @@ export default {
         const newCourse = ref({user: userCurrent, title: '', slug: '', creation: ''})
         const errorMessage = ref('')
         const router = useRouter()
+
+        const store = useStore()
+
+        if(!store.state.isAuthenticated){
+            router.replace({name: 'login'})
+        }
 
         const addCourse = async () => {
             try {

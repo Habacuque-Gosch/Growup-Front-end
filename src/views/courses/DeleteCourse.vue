@@ -12,27 +12,31 @@
 import { useRouter, useRoute } from 'vue-router'
 import { baseAPI } from '@/api/axios_api'
 import { ref, onMounted } from 'vue'
+import { useStore } from 'vuex'
+
+
 
 const courseRoute = useRoute()
 const router = useRouter()
 const errorMessage = ref('')
-
 const courseId = courseRoute.params.id
-console.log(courseId)
+const store = useStore()
 
 onMounted(()=> {
+    if(!store.state.isAuthenticated){
+        router.replace({name: 'login'})
+    }
     baseAPI.get(`v2/courses/${courseId}/`)
     .then(response => {
 
         console.log('data: ', response.data.title)
-
+        var token = store.state.token
         let config = {
             headers: {
-                Authorization: 'Token c2ef737289fabeae006a6b01c9ecb40aa088d046',
+                Authorization: 'Token ', token,
             }
         }
         baseAPI.delete(`courses/${courseId}/`, config)
-        // console.log('requestss: ')
         router.push({ name: 'index'})
 
     })

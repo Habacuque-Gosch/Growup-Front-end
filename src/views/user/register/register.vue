@@ -57,6 +57,9 @@
 import { ref } from 'vue';
 import { baseAPI } from '@/api/axios_api'
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
+
 
 export default {
     setup(){
@@ -64,8 +67,11 @@ export default {
         const password_repeat = ref('')
         const errorMessage = ref('')
         const router = useRouter()
+        const store = useStore()
 
-        console.log(password_repeat)
+        if(store.state.isAuthenticated){
+            router.replace({name: 'index'})
+        }
 
         const createUser = async()=> {
             try {
