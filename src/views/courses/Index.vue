@@ -1,6 +1,6 @@
 
 <template>
-    <h1 v-if="user != ''">Bem vindo(a) {{ user.value.username }}</h1>
+    <h1 v-if="user.value.username">Bem vindo(a) {{ user.value.username }}</h1>
     <h1 v-else>Bem vindo(a)</h1>
     <div>
         <form action="" class=" input-group mb-3 d-flex flex-row bd-highlight mb-3" method="POST">

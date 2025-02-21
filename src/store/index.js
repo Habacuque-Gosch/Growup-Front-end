@@ -1,11 +1,11 @@
 import { baseAPI } from '@/api/axios_api';
-import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
 import { createStore } from 'vuex';
 
 
 const token = localStorage.getItem('token')
 const userData = []
-var router = useRouter()
+// var router = useRouter()
 
 async function request_user(){
     if(token){
@@ -37,7 +37,9 @@ const store = createStore({
         user: userData
     },
 
-    getters: {},
+    getters: {
+        
+    },
 
     mutations: {
         setToken(state, token) {
@@ -50,7 +52,9 @@ const store = createStore({
         }
     },
 
-    actions: {}
+    actions: {
+
+    }
 })
 
 export default store
