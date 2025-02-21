@@ -67,6 +67,10 @@ export default {
         const store = useStore()
         const errorMessage = ref('')
 
+        if(store.state.isAuthenticated){
+            router.replace({name: 'index'})
+        }
+
         const loginFunction = async()=> {
 
             try {
@@ -84,6 +88,9 @@ export default {
                         router.push({name: 'login'})
                     }
 
+                })
+                .catch((erro)=>{
+                    errorMessage.value = `Houve um erro na autenticação com a API`
                 })
             }
 

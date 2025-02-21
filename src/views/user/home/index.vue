@@ -1,4 +1,21 @@
 
+<script setup>
+
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
+
+const store = useStore()
+const router = useRouter()
+
+
+if(store.state.isAuthenticated){
+    router.replace({name: 'index'})
+}
+
+</script>
+
+
 <template>
 
     <main class="form-control">
@@ -10,7 +27,5 @@
     </main>
 
 </template>
-
-
 
 
