@@ -40,7 +40,7 @@ import { useStore } from 'vuex';
 export default {
     data() {
         const store = useStore()
-        var user = store.state.user
+        var user = store.state.usuario.user
         return {
             apiData: [],
             user
@@ -48,7 +48,7 @@ export default {
     },
     mounted() {
         let store_mng = useStore()
-        let token = store_mng.state.token
+        let token = store_mng.state.usuario.token
         let config = {
             headers: {
                 Authorization: 'Token ' + token,

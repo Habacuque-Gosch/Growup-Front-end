@@ -22,6 +22,7 @@
                     <ul class="dropdown-menu">
                         <div v-if="isAuth">
                             <RouterLink to="/user/profile/" class="dropdown-item"><i class="bi bi-person"></i> Profile</RouterLink>
+                            <!-- <a href="/user/profile/" class="dropdown-item"><i class="bi bi-person"></i> Profile</a> -->
                             <a @click="logout()" class="dropdown-item"><i class="bi bi-arrow-left"></i> Logout</a>
                         </div>
                         <div v-else>
@@ -47,7 +48,7 @@
         setup(){
             var router = useRouter()
             var store = useStore()
-            var isAuth = store.state.isAuthenticated
+            var isAuth = store.state.usuario.isAuthenticated
 
             function logout(){
                 baseAPI.defaults.headers.common['Authorization'] = ''

@@ -12,7 +12,7 @@ import { useStore } from 'vuex';
 export default {
     setup(){
         const store = useStore()
-        var messagesApp = computed(()=> store.state.messagesApp)
+        var messagesApp = computed(()=> store.state.usuario.messagesApp)
         // errorMessages = 'erro'
         return {messagesApp}
     }

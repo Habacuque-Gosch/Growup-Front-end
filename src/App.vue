@@ -8,8 +8,8 @@
 
     // const state = mapState
     
-    // const isAuth = store.state.isAuthenticated
-    // const token_auth_teste = store.state.token
+    // const isAuth = store.state.usuario.isAuthenticated
+    // const token_auth_teste = store.state.usuario.token
     
 </script>
 

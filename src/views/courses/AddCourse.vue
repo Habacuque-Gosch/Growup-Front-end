@@ -38,7 +38,7 @@ export default {
 
         const store = useStore()
 
-        if(!store.state.isAuthenticated){
+        if(!store.state.usuario.isAuthenticated){
             router.replace({name: 'login'})
         }
 

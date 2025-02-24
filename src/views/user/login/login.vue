@@ -67,7 +67,7 @@ export default {
         const store = useStore()
         const errorMessage = ref('')
 
-        if(store.state.isAuthenticated){
+        if(store.state.usuario.isAuthenticated){
             router.replace({name: 'index'})
         }
 
@@ -78,8 +78,6 @@ export default {
                 .then(response => {
                     const token = response.data.token
                     if(token){
-                        // baseAPI.defaults.headers.common['Authorization'] = ''
-                        // localStorage.removeItem('token')
                         store.commit('setToken', token)
                         baseAPI.defaults.headers.common['Authorization'] = token
                         localStorage.setItem('token', token)

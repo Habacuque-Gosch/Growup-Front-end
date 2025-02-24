@@ -23,14 +23,14 @@ const courseId = courseRoute.params.id
 const store = useStore()
 
 onMounted(()=> {
-    if(!store.state.isAuthenticated){
+    if(!store.state.usuario.isAuthenticated){
         router.replace({name: 'login'})
     }
     baseAPI.get(`v2/courses/${courseId}/`)
     .then(response => {
 
         console.log('data: ', response.data.title)
-        var token = store.state.token
+        var token = store.state.usuario.token
         let config = {
             headers: {
                 Authorization: 'Token ', token,

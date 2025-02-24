@@ -9,7 +9,7 @@ const store = useStore()
 const router = useRouter()
 
 
-if(store.state.isAuthenticated){
+if(store.state.usuario.isAuthenticated){
     router.replace({name: 'index'})
 }
 

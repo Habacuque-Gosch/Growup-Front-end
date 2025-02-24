@@ -30,10 +30,10 @@ console.log(courseId)
 const courseData = ref({})
 
 onMounted(()=> {
-    if(!store.state.isAuthenticated){
+    if(!store.state.usuario.isAuthenticated){
         router.replace({name: 'login'})
     }
-    let token = store.state.token
+    let token = store.state.usuario.token
     let config = {
         headers: {
             Authorization: 'Token ' + token,
