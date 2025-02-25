@@ -53,7 +53,7 @@
             function logout(){
                 baseAPI.defaults.headers.common['Authorization'] = ''
                 localStorage.removeItem('token')
-                store.commit('removeToken')
+                store.commit('usuario/removeToken')
                 router.replace({name: 'login'})
             }
             return {isAuth, logout}

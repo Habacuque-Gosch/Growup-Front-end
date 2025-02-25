@@ -78,7 +78,7 @@ export default {
                 .then(response => {
                     const token = response.data.token
                     if(token){
-                        store.commit('setToken', token)
+                        store.commit('usuario/setToken', token)
                         baseAPI.defaults.headers.common['Authorization'] = token
                         localStorage.setItem('token', token)
                         router.replace({name: 'index'})
