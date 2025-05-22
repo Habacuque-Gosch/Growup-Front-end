@@ -23,7 +23,7 @@
                 <RouterLink :to="{name: 'course_details', params: {id: course.id}}" class="btn btn-success"><i class="bi bi-eye"></i>Ver curso</RouterLink>
                 <RouterLink :to="{name: 'edit_course', params: {id: course.id}}" class="btn btn-primary"><i class="bi bi-pencil"></i>Editar curso</RouterLink>
                 <RouterLink :to="{name: 'delete_course', params: {id: course.id}}" class="btn btn-danger"><i class="bi bi-trash"></i>Deletar curso</RouterLink>
-                <RouterLink :to="{name: 'course_details', params: {id: course.id}}" class="btn btn-primary"><i class="bi bi-bookmark"></i>Salvar curso</RouterLink>
+                <button @click="saveCourse(course.id)" class="btn btn-primary"><i class="bi bi-bookmark"></i>Salvar curso></button>
             </div>
         </div>
 
@@ -35,15 +35,41 @@
 
 <script>
 import { baseAPI } from '@/api/axios_api'
-import { useUserStore } from '@/store/user';
+import { useUserStore } from '@/store/user'
+
 const store = useUserStore()
+// const loading = ref(false)
+// const successMessage = ref('')
+// const errorMessage = ref('')
 
 export default {
     data() {
         let profile_user = store.profile || null
+
+        async function saveCourse(courseId) {
+            // loading.value = true
+            // successMessage.value = ''
+            // errorMessage.value = ''
+
+            try {
+                const response = await baseAPI.post('profiles/save-course/', {
+                course_id: courseId
+                })
+                // successMessage.value = 'Curso salvo com sucesso!'
+                console.log(response.data)
+            } catch (error) {
+                // errorMessage.value = 'Erro ao salvar curso.'
+                console.error(error)
+            }
+            // finally {
+            //     // loading.value = false
+            // }
+        }
+
         return {
             apiData: [],
-            profile_user
+            profile_user,
+            saveCourse
         }
     },
     mounted() {
