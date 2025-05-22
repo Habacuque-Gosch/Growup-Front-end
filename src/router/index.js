@@ -30,9 +30,11 @@ const routes = [
     },
 
     {
-        path: '/index',
+        path: '/index/',
         name: 'index',
         component: () => import('../views/courses/Index.vue'),
+        meta: { requiresAuth: true }
+
     },
     {
         path: '/course/details/:id/',

@@ -6,7 +6,7 @@
 
 <template>
     <Navbar></Navbar>
-    <Notifications></Notifications>
+    <!-- <Notifications></Notifications> -->
     <main class="container mt-4" id="app">
 
         <!-- <RouterLink to="/">Início</RouterLink> -->

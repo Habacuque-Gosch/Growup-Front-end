@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <RouterLink to="/index" class="nav-link active" >Home</RouterLink>
+                    <RouterLink to="/index/" class="nav-link active" >Home</RouterLink>
                 </li>
                 <li class="nav-item">
                     <RouterLink to="/course/add-course" class="nav-link">Criar curso<i class="bi bi-add"></i></RouterLink>
@@ -41,13 +41,16 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/store/auth'
+import { useUserStore } from '@/store/user'
 import { baseAPI } from '@/api/axios_api'
 
 const router = useRouter()
 const authStore = useAuthStore()
+const userStore = useUserStore()
 
 const logout = () => {
   delete baseAPI.defaults.headers.common['Authorization']
+  userStore.clearProfile()
   authStore.logout()
   router.replace({ name: 'login' })
 }

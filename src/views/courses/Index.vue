@@ -1,6 +1,6 @@
 
 <template>
-    <h1 v-if="user.value.username">Bem vindo(a) {{ user.value.username }}</h1>
+    <h1 v-if="profile_user">Bem vindo(a) {{ profile_user.name }}</h1>
     <h1 v-else>Bem vindo(a)</h1>
     <div>
         <form action="" class=" input-group mb-3 d-flex flex-row bd-highlight mb-3" method="POST">
@@ -36,24 +36,18 @@
 <script>
 import { baseAPI } from '@/api/axios_api'
 import { useUserStore } from '@/store/user';
+const store = useUserStore()
 
 export default {
     data() {
-        const store = useUserStore()
-        var user = store.profile
+        let profile_user = store.profile || null
         return {
             apiData: [],
-            user
+            profile_user
         }
     },
     mounted() {
-        // let store_mng = useStore()
-        // let token = store_mng.state.usuario.token
-        // let config = {
-        //     headers: {
-        //         Authorization: 'Token ' + token,
-        //     }
-        // }
+
         baseAPI.get('/courses/')
         .then(res => {
             this.apiData = res.data.results

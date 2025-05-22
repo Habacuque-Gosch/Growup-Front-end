@@ -55,12 +55,14 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { baseAPI } from '@/api/axios_api'
 import { useAuthStore } from '@/store/auth'
+import { useUserStore } from '@/store/user'
 
 
 const userData = ref({ username: '', password: '' })
 const errorMessage = ref('')
 const router = useRouter()
 const authStore = useAuthStore()
+const userStore = useUserStore()
 
 onMounted(() => {
     if (authStore.isAuthenticated) {
@@ -68,23 +70,24 @@ onMounted(() => {
     }
 })
 const loginFunction = async () => {
-  try {
-    
-    const response = await baseAPI.post('v1/users/login', {
-      email: userData.value.username, 
-      password: userData.value.password
-    })
-    const { access, refresh } = response.data
+    try {
+        
+        const response = await baseAPI.post('/login/', {
+            email: userData.value.username, 
+            password: userData.value.password
+        })
+        const { access, refresh } = response.data
 
-    if (access && refresh) {
-      authStore.login({ access, refresh })
-      router.replace({ name: 'index' })
-    } else {
-      errorMessage.value = 'Tokens não recebidos.'
+        if (access && refresh) {
+            authStore.login({ access, refresh })
+            userStore.fetchUserProfile()
+            router.replace({ name: 'index' })
+        } else {
+            errorMessage.value = 'Tokens não recebidos.'
+        }
+    } catch (error) {
+        errorMessage.value = 'Usuário ou senha incorretos.'
     }
-  } catch (error) {
-    errorMessage.value = 'Usuário ou senha incorretos.'
-  }
 }
 
 </script>

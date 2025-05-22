@@ -26,7 +26,7 @@ onMounted(()=> {
     if(!store.state.usuario.isAuthenticated){
         router.replace({name: 'login'})
     }
-    baseAPI.get(`v2/courses/${courseId}/`)
+    baseAPI.get(`/courses/${courseId}/`)
     .then(response => {
 
         console.log('data: ', response.data.title)

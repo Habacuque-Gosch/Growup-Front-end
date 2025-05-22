@@ -6,6 +6,10 @@ const baseAPI = axios.create({
   baseURL: 'http://127.0.0.1:8000/pt-br/api/v1/',
 })
 
+const baseAPIAuth = axios.create({
+  baseURL: 'http://127.0.0.1:8000/api/',
+})
+
 export async function refreshAccessToken() {
   const authStore = useAuthStore()
 
@@ -14,7 +18,7 @@ export async function refreshAccessToken() {
   }
 
   try {
-    const response = await baseAPI.post('auth/token/refresh/', {
+    const response = await baseAPIAuth.post('auth/token/refresh/', {
       refresh: authStore.refreshToken
     })
     const newAccessToken = response.data.access

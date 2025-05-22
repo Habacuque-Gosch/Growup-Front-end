@@ -3,12 +3,12 @@
 
     <main class="form-control">
         <h1>Profile</h1>
-        <div class="card" v-if="user">
+        <div class="card" v-if="profile_data">
             <div class="body-card">
-                <img :src="`${user.value.photo_user}`" width="50px" height="50px">
-                <p>{{ user.value.username }}</p>
-                <p>{{ user.value.bio }}</p>
-            </div>
+                    <img :src=url_photo width="50px" height="50px">
+                    <p>{{ profile_data.name }}</p>
+                    <p>{{ profile_data.bio }}</p>
+                </div>
         </div>
         <p v-else>erro ao carregar informações do usuário</p>
     </main>
@@ -17,23 +17,25 @@
 
 <script>
 import { useUserStore } from '@/store/user'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+// import.meta.env.VITE_API_BASE_URL
 
 export default {
-  setup() {
-    const userStore = useUserStore()
-    const router = useRouter()
+    setup() {
+        const userStore = useUserStore()
+        const profile_data = userStore.profile
 
-    // Redireciona se não autenticado
-    if (!userStore.isAuthenticated) {
-      router.replace({ name: 'login' })
+        const photo_user = computed(() => {
+        if (!profile_data?.photo) return null
+        return import.meta.env.VITE_API_BASE_URL + profile_data.photo
+        })
+
+        let url_photo = photo_user.value
+
+        return {
+            url_photo,
+            profile_data
+        }
     }
-
-    const user = userStore.user
-
-    return {
-      user
-    }
-  }
 }
 </script>

@@ -24,30 +24,21 @@ import { useStore } from 'vuex'
 
 const courseRoute = useRouter()
 const courseId = courseRoute.currentRoute.value.params.id
-const store = useStore()
-console.log(courseId)
-
 const courseData = ref({})
 
 onMounted(()=> {
-    if(!store.state.usuario.isAuthenticated){
-        router.replace({name: 'login'})
-    }
-    let token = store.state.usuario.token
-    let config = {
-        headers: {
-            Authorization: 'Token ' + token,
-        }
-    }
-    baseAPI.get(`v2/courses/${courseId}/`, config)
+
+    // let token = store.state.usuario.token
+    // let config = {
+    //     headers: {
+    //         Authorization: 'Token ' + token,
+    //     }
+    // }
+    baseAPI.get(`/courses/${courseId}/`)
         .then(res => {
-
             courseData.value = res.data
-
             console.log('Courses API has received data')
-
         })
-
         .catch(err => {
             console.log('erro get courses API: ' + err)
         })
