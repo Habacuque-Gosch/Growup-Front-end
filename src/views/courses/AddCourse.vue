@@ -25,30 +25,28 @@
 import { ref } from 'vue';
 import { baseAPI } from '@/api/axios_api'
 import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
-
+import { useAuthStore } from '@/store/auth';
 
 
 export default {
     setup(){
-        const userCurrent = localStorage.getItem('user_id')
         const newCourse = ref({user: userCurrent, title: '', slug: '', creation: ''})
         const errorMessage = ref('')
         const router = useRouter()
 
-        const store = useStore()
+        const store = useAuthStore()
 
-        if(!store.state.usuario.isAuthenticated){
-            router.replace({name: 'login'})
+        if (!store.isAuthenticated) {
+        router.replace({ name: 'login' })
         }
 
         const addCourse = async () => {
             try {
-                const response = await baseAPI.get('v2/courses/1/', {
+                const response = await baseAPI.get('/courses/1/', {
                     params:{
                         title: newCourse.value.title,
                         slug: newCourse.value.slug,
-                        creation: newCourse.value.creation,
+                        // description: '',
                     }
                 })
 
@@ -58,12 +56,12 @@ export default {
                 if(courseExists){
                     errorMessage.value = 'Curso já existente'
                 } else {
-                    let config = {
-                        headers: {
-                            Authorization: localStorage.getItem('token'),
-                        }
-                    }
-                    await baseAPI.post('v2/courses/', newCourse.value, config)
+                    // let config = {
+                    //     headers: {
+                    //         Authorization: localStorage.getItem('token'),
+                    //     }
+                    // }
+                    await baseAPI.post('/courses/', newCourse.value)
                     // console.log('requestss: ')
                     router.push({ name: 'index'})
                 }

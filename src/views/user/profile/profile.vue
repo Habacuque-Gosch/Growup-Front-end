@@ -16,19 +16,24 @@
 </template>
 
 <script>
-import { useStore } from 'vuex';
+import { useUserStore } from '@/store/user'
+import { useRouter } from 'vue-router'
 
 export default {
-    setup() {
-        const store = useStore()
-        if(!store.state.usuario.isAuthenticated){
-            router.replace({name: 'login'})
-        }
-        var user = store.state.usuario.user
-        
-        return {
-            user
-        }
+  setup() {
+    const userStore = useUserStore()
+    const router = useRouter()
+
+    // Redireciona se não autenticado
+    if (!userStore.isAuthenticated) {
+      router.replace({ name: 'login' })
     }
+
+    const user = userStore.user
+
+    return {
+      user
+    }
+  }
 }
 </script>

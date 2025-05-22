@@ -50,61 +50,41 @@
 
 </template>
 
-
-<script>
-
-import { ref } from 'vue';
-import { baseAPI } from '@/api/axios_api';
-import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { baseAPI } from '@/api/axios_api'
+import { useAuthStore } from '@/store/auth'
 
 
-export default {
-    setup(){
+const userData = ref({ username: '', password: '' })
+const errorMessage = ref('')
+const router = useRouter()
+const authStore = useAuthStore()
 
-        const userData = ref({username: '', password: ''})
-        const router = useRouter()
-        const store = useStore()
-        const errorMessage = ref('')
-
-        if(store.state.usuario.isAuthenticated){
-            router.replace({name: 'index'})
-        }
-
-        const loginFunction = async()=> {
-
-            try {
-                const request_user = await baseAPI.post('users/auth/', userData.value)
-                .then(response => {
-                    const token = response.data.token
-                    if(token){
-                        store.commit('usuario/setToken', token)
-                        baseAPI.defaults.headers.common['Authorization'] = token
-                        localStorage.setItem('token', token)
-                        router.replace({name: 'index'})
-                    } else {
-                        router.push({name: 'login'})
-                    }
-
-                })
-                .catch((erro)=>{
-                    errorMessage.value = `Houve um erro na autenticação com a API`
-                })
-            }
-
-            catch (error) {
-                errorMessage.value = `Usuários ou senha incorreto`
-            }
-
-        }
-
-        return {
-            errorMessage,
-            loginFunction,
-            userData
-        }
-
+onMounted(() => {
+    if (authStore.isAuthenticated) {
+        router.replace({ name: 'index' })
     }
+})
+const loginFunction = async () => {
+  try {
+    
+    const response = await baseAPI.post('v1/users/login', {
+      email: userData.value.username, 
+      password: userData.value.password
+    })
+    const { access, refresh } = response.data
+
+    if (access && refresh) {
+      authStore.login({ access, refresh })
+      router.replace({ name: 'index' })
+    } else {
+      errorMessage.value = 'Tokens não recebidos.'
+    }
+  } catch (error) {
+    errorMessage.value = 'Usuário ou senha incorretos.'
+  }
 }
 
 </script>

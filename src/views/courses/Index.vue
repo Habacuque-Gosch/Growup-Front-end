@@ -35,26 +35,26 @@
 
 <script>
 import { baseAPI } from '@/api/axios_api'
-import { useStore } from 'vuex';
+import { useUserStore } from '@/store/user';
 
 export default {
     data() {
-        const store = useStore()
-        var user = store.state.usuario.user
+        const store = useUserStore()
+        var user = store.profile
         return {
             apiData: [],
             user
         }
     },
     mounted() {
-        let store_mng = useStore()
-        let token = store_mng.state.usuario.token
-        let config = {
-            headers: {
-                Authorization: 'Token ' + token,
-            }
-        }
-        baseAPI.get('v2/courses/', config)
+        // let store_mng = useStore()
+        // let token = store_mng.state.usuario.token
+        // let config = {
+        //     headers: {
+        //         Authorization: 'Token ' + token,
+        //     }
+        // }
+        baseAPI.get('/courses/')
         .then(res => {
             this.apiData = res.data.results
         })

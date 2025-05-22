@@ -38,27 +38,20 @@
 
 </template>
 
-<script>
-    import { baseAPI } from '@/api/axios_api';
-    import { useRouter } from 'vue-router';
-    import { useStore } from 'vuex';
-    
+<script setup>
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/store/auth'
+import { baseAPI } from '@/api/axios_api'
 
-    export default {
-        setup(){
-            var router = useRouter()
-            var store = useStore()
-            var isAuth = store.state.usuario.isAuthenticated
+const router = useRouter()
+const authStore = useAuthStore()
 
-            function logout(){
-                baseAPI.defaults.headers.common['Authorization'] = ''
-                localStorage.removeItem('token')
-                store.commit('usuario/removeToken')
-                router.replace({name: 'login'})
-            }
-            return {isAuth, logout}
-        },
-    }
+const logout = () => {
+  delete baseAPI.defaults.headers.common['Authorization']
+  authStore.logout()
+  router.replace({ name: 'login' })
+}
 
+const isAuth = authStore.isAuthenticated
 
 </script>

@@ -52,60 +52,53 @@
 </template>
 
 
-<script>
-
-import { ref } from 'vue';
+<script setup>
+import { ref } from 'vue'
 import { baseAPI } from '@/api/axios_api'
-import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/store/auth'
 
+const newUser = ref({
+//   full_name: '',
+  username: '',
+  email: '',
+  password: ''
+})
+const password_repeat = ref('')
+const errorMessage = ref('')
+const router = useRouter()
+const authStore = useAuthStore()
 
-
-export default {
-    setup(){
-        const newUser = ref({full_name: '', username: '', email: '', password: ''})
-        const password_repeat = ref('')
-        const errorMessage = ref('')
-        const router = useRouter()
-        const store = useStore()
-
-        if(store.state.usuario.isAuthenticated){
-            router.replace({name: 'index'})
-        }
-
-        const createUser = async()=> {
-            try {
-                if(newUser.value.password == password_repeat.value){
-
-                    let config = {
-                        headers: {
-                            Authorization: 'Token c2ef737289fabeae006a6b01c9ecb40aa088d046',
-                        }
-                    }
-
-                    const response = baseAPI.post('users/register-user/', newUser.value, config)
-                    router.push({name: 'login'})
-
-                } else {
-                    errorMessage.value = `Senhas não são iguais`
-                    router.push({name: 'register'})
-                }
-            }
-
-            catch (error){
-                console.log(`ERRO AO CRIAR USER: ${error}`)
-                errorMessage.value = `Erro ao registrar-se`
-            }
-        }
-
-        return {
-            newUser,
-            createUser,
-            password_repeat,
-            errorMessage
-        }
-    }
+if (authStore.isAuthenticated) {
+  router.replace({ name: 'index' })
 }
 
+const createUser = async () => {
+  try {
+    if (newUser.value.password !== password_repeat.value) {
+      errorMessage.value = 'Senhas não são iguais'
+      return
+    }
 
+    const payload = {
+      username: newUser.value.username,
+      email: newUser.value.email,
+      password: newUser.value.password
+    }
+
+    // const config = {
+    //   headers: {
+    //     Authorization: `Bearer ${authStore.accessToken}`
+    //   }
+    // }
+
+    await baseAPI.post('/register/', payload)
+
+    router.push({ name: 'login' })
+
+  } catch (error) {
+    console.error('ERRO AO CRIAR USER:', error)
+    errorMessage.value = 'Erro ao registrar-se'
+  }
+}
 </script>
