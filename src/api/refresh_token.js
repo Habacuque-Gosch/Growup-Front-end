@@ -8,7 +8,7 @@ export async function refreshAccessToken() {
     throw new Error('No refresh token available')
   }
 
-  const response = await baseAPI.post('auth/token/refresh/', {
+  const response = await baseAPI.post('users/auth/token/refresh/', {
     refresh: authStore.refreshToken
   })
 
