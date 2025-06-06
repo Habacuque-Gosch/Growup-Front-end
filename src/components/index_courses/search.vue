@@ -112,20 +112,6 @@
 
                 <article class="filter-cat-desk">
 
-                    <h2>Número de propostas</h2>
-
-                    <select class="select-filter" name="number_proposal">
-                        <option value="">-- Selecione a ordem de relevancia --</option>
-                        <option value="mais_propostas">Maior número de propostas</option>
-                        <option value="menos_propostas">Menor número de propostas</option>
-                    </select>
-
-                </article>
-
-                <hr>
-
-                <article class="filter-cat-desk">
-
                     <h2>Nível de experiência</h2>
 
                     <select class="select-filter" name="level">
