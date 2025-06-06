@@ -94,7 +94,7 @@
     /* height: 100%; */
 }
 
-.form-group-campos {
+.form-group-fields {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,18 +116,18 @@
     width: 30%;
 }
 
-.form-group-campos textarea {
+.form-group-fields textarea {
     width: 30%;
     height: 85%;
     resize: none;
     padding-top: 1em;
     padding-bottom: 1em;
 }
-.form-group-campos select {
+.form-group-fields select {
     width: 30%;
 }
 
-.campo-user {
+.field-user {
     display: flex;
     justify-content: center;
     align-items: center;

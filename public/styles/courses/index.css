@@ -1,0 +1,25 @@
+
+
+.div-list-courses {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+}
+
+.div-list-courses-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+}
+
+.div-card-course {
+    padding: 1em;
+    background-color: var(--texto);
+    border-radius: var(--border-rad);
+}

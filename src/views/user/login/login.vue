@@ -1,30 +1,31 @@
 <template>
 
-    <div class="text-center mb-3">
-        <p>Sign in with:</p>
+    <main class="section-login-form">
 
-        <a data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-            <i class="bi bi-google"></i>
-        </a>
-        <p class="text-center">or:</p>
+        <!-- <div class="text-center mb-3">
+            <p>Sign in with:</p>
 
-    </div>
-    <p>{{ errorMessage }}</p>
-    <form @submit.prevent="loginFunction" class="form-control">
+            <a data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                <i class="bi bi-google"></i>
+            </a>
+            <p class="text-center">or:</p>
 
-        <!-- Email input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-            <label class="form-label" for="loginName">Email or username</label>
-            <input type="text" class="form-control" v-model="userData.username"/>
-        </div>
+        </div> -->
+        <p>{{ errorMessage }}</p>
+        <form @submit.prevent="loginFunction" class="section-login-form">
 
-        <!-- Password input -->
-        <div data-mdb-input-init class="form-outline mb-4">
-            <label class="form-label" for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" class="form-control" v-model="userData.password"/>
-        </div>
+            <div class="form-group-fields">
+                <label class="form-label-fields" for="loginName">Email or username</label>
+                <input type="text" class="field-user" placeholder="Digite seu email" v-model="userData.username"/>
 
-        <!-- 2 column grid layout -->
+                <label class="form-label-fields" for="loginPassword">Password</label>
+                <input type="password" class="field-user" placeholder="Digite sua senha" id="loginPassword" v-model="userData.password"/>
+            </div>
+
+            <button type="submit" class="base-btn-forms">Login</button>
+            
+        </form>
+
         <div class="row mb-4">
             <div class="col-md-6 d-flex justify-content-center">
             <div class="form-check mb-3 mb-md-0">
@@ -38,15 +39,9 @@
             </div>
         </div>
 
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary">Login</button>
+        <RouterLink :to="{name: 'register'}" class="" >Register</RouterLink>
 
-        <!-- Register buttons -->
-        <div class="text-center">
-            <RouterLink :to="{name: 'register'}" class="nav-link" >Register</RouterLink>
-        </div>
-        
-    </form>
+    </main>
 
 </template>
 

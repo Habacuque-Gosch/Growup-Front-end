@@ -15,7 +15,7 @@
 
 
 /* === MODULE: INDEX_COURSES === */
-
+@import url(courses/index.css);
 
 /* === MODULE: PROFILE_USER AND SETTINGS === */
 /* @import url(users/profile/my_finances_desk.css);
@@ -48,7 +48,7 @@
 @import url(partials/normalize.css);
 
 
-html, body {
+html, body, main{
     display: flex;
     justify-content: center;
     align-items: center;

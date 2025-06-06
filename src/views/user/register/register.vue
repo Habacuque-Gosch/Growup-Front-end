@@ -1,40 +1,26 @@
 <template>
 
-<!-- <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register"> -->
+    <main class="section-login-form">
 
-        <form @submit.prevent="createUser" class="form-control">
+        <form @submit.prevent="createUser" class="section-login-form">
             <p>{{ errorMessage }}</p>
-            <!-- Name input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="registerName">Digite seu nome completo</label>
-                <input type="text" v-model="newUser.full_name" class="form-control" />
+            <div data-mdb-input-init class="form-group-fields">
+                <label class="form-label-fields" for="registerName">Digite seu nome completo</label>
+                <input type="text" class="field-user" v-model="newUser.full_name"/>
+
+                <label class="form-label-fields" for="registerUsername">Username</label>
+                <input type="text" v-model="newUser.username" class="field-user"/>
+
+                <label class="form-label-fields" for="registerEmail">Email</label>
+                <input type="email" v-model="newUser.email" class="field-user"/>
+    
+                <label class="form-label-fields" for="registerPassword">Password</label>
+                <input type="password" v-model="newUser.password" class="field-user"/>
+
+                <label class="form-label-fields">Repeat password</label>
+                <input type="password" id="registerrepeatpassword" v-model="password_repeat" class="field-user"/>
             </div>
 
-            <!-- Username input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="registerUsername">Username</label>
-                <input type="text" v-model="newUser.username" class="form-control" />
-            </div>
-
-            <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="registerEmail">Email</label>
-                <input type="email" v-model="newUser.email" class="form-control" />
-            </div>
-
-            <!-- Password input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="registerPassword">Password</label>
-                <input type="password" v-model="newUser.password" class="form-control" />
-            </div>
-
-            <!-- Repeat Password input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label">Repeat password</label>
-                <input type="password" id="registerrepeatpassword" v-model="password_repeat" class="form-control" />
-            </div>
-
-            <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-4">
                 <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
                 aria-describedby="registerCheckHelpText" />
@@ -43,11 +29,11 @@
                 </label>
             </div>
 
-            <!-- Submit button -->
-            <button class="btn btn-primary">Resgister account</button>
+            <button class="base-btn-forms">Resgister account</button>
             
         </form>
-<!-- </div> -->
+        
+    </main>
 
 </template>
 
