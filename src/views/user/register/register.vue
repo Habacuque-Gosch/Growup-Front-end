@@ -5,31 +5,23 @@
         <form @submit.prevent="createUser" class="section-login-form">
             <p>{{ errorMessage }}</p>
             <div data-mdb-input-init class="form-group-fields">
-                <label class="form-label-fields" for="registerName">Digite seu nome completo</label>
-                <input type="text" class="field-user" v-model="newUser.full_name"/>
+                <label class="form-label-fields" for="registerName">Nome completo</label>
+                <input type="text" class="field-user" placeholder="Digite seu nome completo" v-model="newUser.full_name"/>
 
-                <label class="form-label-fields" for="registerUsername">Username</label>
-                <input type="text" v-model="newUser.username" class="field-user"/>
+                <label class="form-label-fields" for="registerUsername">Usuário</label>
+                <input type="text" class="field-user" placeholder="Digite seu nome de usuário" v-model="newUser.username"/>
 
                 <label class="form-label-fields" for="registerEmail">Email</label>
-                <input type="email" v-model="newUser.email" class="field-user"/>
+                <input type="email" class="field-user" placeholder="Digite seu email" v-model="newUser.email"/>
     
-                <label class="form-label-fields" for="registerPassword">Password</label>
-                <input type="password" v-model="newUser.password" class="field-user"/>
+                <label class="form-label-fields" for="registerPassword">Senha</label>
+                <input type="password" class="field-user" placeholder="Digite sua senha" v-model="newUser.password"/>
 
-                <label class="form-label-fields">Repeat password</label>
-                <input type="password" id="registerrepeatpassword" v-model="password_repeat" class="field-user"/>
+                <label class="form-label-fields">Confirmar senha</label>
+                <input type="password" id="registerrepeatpassword" class="field-user" placeholder="Digite sua senha" v-model="password_repeat"/>
             </div>
 
-            <div class="form-check d-flex justify-content-center mb-4">
-                <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
-                aria-describedby="registerCheckHelpText" />
-                <label class="form-check-label" for="registerCheck">
-                I have read and agree to the terms
-                </label>
-            </div>
-
-            <button class="base-btn-forms">Resgister account</button>
+            <button class="base-btn-forms">Criar conta</button>
             
         </form>
         
@@ -88,3 +80,17 @@ const createUser = async () => {
   }
 }
 </script>
+
+<style scoped>
+
+    #app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+</style>
+

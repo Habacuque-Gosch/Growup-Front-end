@@ -3,10 +3,6 @@
 
 @media (min-width: 960px) {
 
-    .section-login-form {
-        margin-top: 5em;
-    }
-
     .titulo-e-btn-google {
         display: none;
     }

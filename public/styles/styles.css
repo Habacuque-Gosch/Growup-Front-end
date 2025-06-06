@@ -48,7 +48,7 @@
 @import url(partials/normalize.css);
 
 
-html, body, main{
+html, body {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -95,12 +95,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-/* 
-    .main-index-courses {
-
-        width: 90%;
-    } */
-
-</style>
