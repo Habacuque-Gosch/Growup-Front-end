@@ -53,12 +53,6 @@ const routes = [
         component: () => import('../views/courses/EditCourse.vue'),
         meta: { requiresAuth: true }
     },
-    {
-        path: '/course/delete-course/:id/',
-        name: 'delete_course',
-        component: () => import('../views/courses/DeleteCourse.vue'),
-        meta: { requiresAuth: true }
-    },
 ]
 
 const router = createRouter({

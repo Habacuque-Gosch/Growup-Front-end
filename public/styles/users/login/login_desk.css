@@ -1,0 +1,88 @@
+
+@import url(botao_google.css);
+
+@media (min-width: 960px) {
+
+    .section-login-form {
+        margin-top: 5em;
+    }
+
+    .titulo-e-btn-google {
+        display: none;
+    }
+
+    .div-alternativa-de-login {
+        display: none;
+    }
+
+    .logo-e-contexto-login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1em;
+        margin-bottom: 3em;
+    }
+
+    .logo-login {
+        border-radius: 100%;
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo-e-contexto-login h1 {
+        font-size: 30px;
+        color: var(--texto);
+    }
+
+    .password-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 55%;
+        flex-direction: column;
+    }
+
+    .password-wrapper input {
+        width: var(--screen-size-desk);
+        padding-right: 40px; /* espaço pro ícone */
+    }
+
+    .show-pass-init {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        left: 72%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .div-botao-login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+
+    .div-alternativas-forms {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2em;
+    }
+
+    .div-alternativas-forms a {
+        font-size: 16px;
+        text-decoration: none;
+        color: var(--texto-no-card);
+    }
+
+    #main-loading-animation {
+        top: -31.8em;
+    }
+
+}

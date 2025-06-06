@@ -1,0 +1,66 @@
+
+
+.filter-desk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--quaternaria);
+    position: absolute;
+    left: 2em;
+    top: 7.50em;
+    width: 18%;
+    height: auto;
+    border-radius: 10px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: solid 2px var(--primaria);
+}
+
+.form-filter-jobs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.select-filter{
+    /* background-color: var(--primaria); */
+    border-radius: 10px;
+    height: 55px;
+    width: 100%;
+}
+
+.form-filter-jobs button {
+    margin-top: 1em;
+    width: var(--screen-size-mobile);
+}
+
+.filter-desk hr {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primaria);
+    color: var(--primaria);
+    opacity: 100;
+    font-weight: 900;
+}
+
+.filter-cat-desk {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    text-align: left;
+    /* background-color: red; */
+    width: var(--screen-size-mobile);
+}
+
+.filter-cat-desk a {
+    text-decoration: none;
+    color: var(--texto);
+}
+
+.filter-cat-desk h2 {
+    font-weight: bold;
+}

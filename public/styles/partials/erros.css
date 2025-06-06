@@ -1,0 +1,22 @@
+.nenhum-dado-encontrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+    width: 100%;
+}
+
+.nenhum-dado-encontrado h1 {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.error-oops {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 900;
+    width: var(--screen-size-mobile);
+}

@@ -1,0 +1,63 @@
+
+
+.section-my-notifications {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-top: 7em;
+}
+
+.div-my-notifications {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1.5em;
+    gap: 12px;
+}
+
+#my-notifications-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: var(--screen-size-desk);
+}
+.my-notifications {
+    color: var(--texto);
+    width: var(--screen-size-desk);
+    text-align: left;
+    border-radius: 5px 5px 0px 0px;
+    padding-left: 1em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.my-notifications.success {
+    background-color: var(--primaria);
+}
+
+.my-notifications.error {
+    background-color: rgb(240, 65, 65);
+}
+
+#my-notifications-body {
+    width: var(--screen-size-desk);
+    color: var(--texto);
+    background-color: var(--quaternaria);
+    text-align: left;
+    border-radius: 0px 0px 5px 5px;
+    padding-left: 1em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.div-titulo-formulario h1 {
+    font-size: 2em;
+    color: var(--texto);
+    margin-bottom: 0px;
+}

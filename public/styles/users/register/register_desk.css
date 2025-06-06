@@ -1,0 +1,34 @@
+
+@media (min-width: 960px) {
+
+    .div-titulo-formulario {
+        margin-bottom: 0em;
+    }
+
+    .div-alert-register {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0em;
+        text-align: center;
+        width: var(--screen-size-desk);
+        margin-top: 3em;
+    }
+
+    .alert-register {
+        text-align: center;
+        font-size: 14px;
+        color: var(--texto_miudo);
+        width: var(--screen-size-desk);
+    }
+
+    .section-login-form {
+        margin-bottom: 0em;
+    }
+
+    .show-pass-cadastro {
+        margin-right: -22.5em; 
+        margin-top: -3em;
+    }
+
+}

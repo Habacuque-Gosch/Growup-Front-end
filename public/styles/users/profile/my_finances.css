@@ -1,0 +1,122 @@
+
+
+@media (max-width: 428px) {
+
+    .section-balance-avaible {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        /* height: ; */
+        gap: 2em;
+        margin-top: 1.5em;
+    }
+
+    .article-balance-avaible {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* flex-direction: ; */
+        background-color: var(--primaria);
+        width: var(--screen-size-mobile);
+        height: 150px;
+        border-radius: 10px;
+        gap: 2em;
+    }
+
+    .div-balance-avaible {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        /* height: ; */
+    }
+    .div-balance-avaible h2 {
+        color: var(--texto);
+        font-size: 1.3em;
+        margin-bottom: 0px;
+        font-weight: bold;
+    }
+    .div-balance-avaible p {
+        color: var(--texto);
+        font-size: 1.1em;
+        margin-bottom: 0px;
+    }
+
+    .div-btn-withdraw {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .div-btn-withdraw button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--texto);
+        color: var(--primaria);
+        height: 60px;
+        width: var(--screen-size-desk);
+        padding: 6px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1em;
+        text-decoration: none;
+    }
+    .div-btn-withdraw button:hover {
+        background-color: #ffff;
+        color: var(--primaria);
+    }
+
+
+    .section-actions-in-ct {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 2em;
+        /* height: ; */
+        gap: 10px;
+    }
+
+    .div-actions-ct {
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        flex-direction: row;
+        width: var(--screen-size-mobile);
+        /* height: ; */
+        gap: 1em;
+    }
+
+    .div-actions-ct a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(247, 244, 244);
+        width: 25%;
+        height: 60px;
+        border-radius: 10px;
+    }
+
+    .div-actions-ct a i {
+        font-size: 1.5em;
+    }
+
+    .div-text-actions-ct {
+        width: var(--screen-size-mobile);
+        /* height: ; */
+        gap: 1em;
+    }
+
+    .div-text-actions-ct p {
+        font-size: 1em;
+        text-align: center;
+        color: var(--texto);
+        width: 25%;
+        margin-bottom: 0px;
+    }
+
+}

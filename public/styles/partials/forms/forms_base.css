@@ -1,0 +1,112 @@
+
+
+@media (max-width: 428px) {
+
+    .section-tela {
+        align-items: center;
+        height: 80%;
+    }
+    
+    .div-btn-back {
+        justify-content: left;
+        align-items: left;
+    }
+
+    .btn-back{
+        justify-content: center;
+        height: 45px;
+        width: 10%;
+        padding-left: 1.5em;
+    }
+
+    .div-titulo-formulario p, h1 {
+        font-size: 2em;
+        color: var(--texto);
+        margin-bottom: 0em;
+    }
+
+    .div-titulo-forms {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        width: var(--screen-size-mobile);
+        gap: 1em;
+    }
+
+    .div-titulo-forms h1{
+        font-size: 1.45em;
+        color: var(--texto);
+    }
+
+    .div-titulo-forms p{
+        font-size: 1em;
+        color: var(--texto);
+    }
+
+    .form-label-fields {
+        font-size: 1em;
+        margin-bottom: 10px;
+        width: var(--screen-size-mobile);
+    }
+
+    .form-group-campos textarea {
+        width: var(--screen-size-mobile);
+        height: 85%;
+    }
+    .form-group-campos select {
+        width: 89%;
+    }
+
+    .campo-user {
+        width: var(--screen-size-mobile);
+        padding-left: 18px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        /* margin-bottom: 7px; */
+        height: 55px;
+    }
+    .campo-user:focus {
+        outline: solid 2px var(--primaria);
+    }
+
+    .base-btn-forms {
+        height: 55px;
+        width: var(--screen-size-mobile);
+        border-radius: 10px;
+    }
+
+    .upload-img {
+        margin-top: 0em;
+        margin-bottom: 1em;
+    }
+    .upload-img::-webkit-file-upload-button {
+        display: none;
+    }
+
+    .upload-docs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        background-image: url('./upload_img.svg');
+        background-position: center top;
+        background-size: 100% auto;
+        color: #ffffff00;
+        cursor: pointer;
+        width: 120px;
+        height: 120px;
+        border-radius: 100%;
+        /* margin-top: 2em;
+        margin-bottom: 2em; */
+    }
+    .upload-docs::-webkit-file-upload-button {
+        display: none;
+    }
+    .opcao-config {
+        width: 90%;
+    }
+}
+
+
+

@@ -1,0 +1,8 @@
+
+@media (max-width: 428px) {
+
+    #comp-footer-resources-for-desk, #comp-footer-contact-for-desk  {
+        display: none;
+    }
+}
+

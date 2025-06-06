@@ -1,0 +1,42 @@
+@media (max-width: 428px) {
+
+    .comp-header-for-desk, .filter-desk {
+        display: none;
+    }
+
+    .navegation-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+        background-color: var(--quaternaria);
+        z-index: 9999999;
+        /* padding: 12px; */
+        position: fixed;
+        /* bottom: 1.5em; */
+        bottom: 0em;
+        /* width: 70%; */
+        width: 100%;
+        height: 80px;
+        /* border-radius: 20px; */
+        left: 50%; 
+        transform: translate(-50%);
+    }
+    
+    .nav-item {
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0);
+        z-index: 99999;
+    }
+
+    .nav-item i{
+        font-size: 1.8em;
+    }
+
+}

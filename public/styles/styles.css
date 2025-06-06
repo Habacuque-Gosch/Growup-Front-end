@@ -1,0 +1,89 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+/* === MODULE: HOME, LOGIN AND REGISTER === */
+/* @import url(users/notify/my_notifications_desk.css);
+@import url(users/notify/my_notifications.css); */
+@import url(users/home/home_desk.css);
+@import url(users/home/home.css);
+@import url(users/login/login_desk.css);
+@import url(users/login/login.css);
+@import url(users/register/register_desk.css);
+@import url(users/register/cadastro.css);
+/* @import url(users/terms_and_privacy/index.css); */
+
+
+/* === MODULE: INDEX_COURSES === */
+
+
+/* === MODULE: PROFILE_USER AND SETTINGS === */
+/* @import url(users/profile/my_finances_desk.css);
+@import url(users/profile/my_finances.css);
+@import url(users/profile/profile_desk.css);
+@import url(users/profile/profile.css); */
+
+/* @import url(users/settings/settings.css); */
+
+/* === MODULE: BODY_EMAILS === */
+/* @import url(emails/welcome.css); */
+
+/* === MODULE: PARTIALS === */
+@import url(partials/forms/forms_base_desk.css);
+@import url(partials/forms/forms_base.css);
+@import url(partials/notifications/notification_app.css);
+@import url(partials/search/busca.css);
+@import url(partials/search/search.css);
+@import url(partials/search/filter_desk.css);
+@import url(partials/header_for_desk.css);
+@import url(partials/navegation_bar.css);
+@import url(partials/graphics.css);
+@import url(partials/graphics/my_finances_graphics.css);
+@import url(partials/footer.css);
+@import url(partials/erros.css);
+@import url(partials/modals/modals.css);
+@import url(partials/animation/loading_screen.css);
+
+/* === MODULE: NORMALIZE/RESET === */
+@import url(partials/normalize.css);
+
+
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    background-color: var(--secundaria);
+}
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* === MODULE: ROOT === */
+:root {
+    --font-main: "Lato", "sans-serif";
+    --primaria: #005DDF;
+    --secundaria: #22262D;
+    --terciaria: #455368;
+    --quaternaria: #313640;
+    --chat-color: #243650;
+
+    /* HOME */
+    --texto: #ffffff;
+    --texto_70: #ffffffc5;
+    --texto_miudo: #78B0FF;
+
+    /* LOGIN */
+    --texto-no-card:#455368;
+    --texto-no-card-plataforma: #b1d0ff;
+    --textos:#75859D;
+
+    /* SIZES (EM, PX, %) */
+    --screen-size-desk: 55%;
+    --screen-size-mobile: 90%;
+    --border-rad: 10px;
+}

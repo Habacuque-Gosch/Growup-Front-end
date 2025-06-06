@@ -1,0 +1,76 @@
+
+@media(min-width:960px){
+    #section-opcoes-settings {
+        display: none;
+    }
+}
+
+.settings-wrapper {
+    max-width: 960px;
+    margin: 2rem auto;
+}
+
+.sidebar {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.sidebar .nav-link {
+    color: #ccc;
+    border-radius: 6px;
+}
+
+.sidebar .nav-link.active, .sidebar .nav-link:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.form-control, .form-select {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+form p {
+    color: #ccc;
+}
+form input {
+    background-color: red;
+}
+
+.form-text {
+    color: #999;
+}
+
+hr {
+    border-top: 1px solid #333;
+}
+
+.section-opcoes-config {
+    display: none;
+}
+
+.form-section form {
+    margin-top: 1em;
+}
+
+.form-section form :is(input, textarea, select, p) {
+    width: 100%;
+}
+
+.form-section form input[type="file"] {
+    width: 120px;
+}
+.form-section form input[type="checkbox"] {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-left: -42em;
+}
+
+@media(max-width: 440px){
+    .settings-wrapper {
+        display: none;
+    }
+}
