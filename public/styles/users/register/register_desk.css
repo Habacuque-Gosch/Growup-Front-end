@@ -1,15 +1,6 @@
 
 @media (min-width: 960px) {
 
-    #app {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
-        min-height: 100vh;
-    }
-
     .div-alert-register {
         display: flex;
         justify-content: center;

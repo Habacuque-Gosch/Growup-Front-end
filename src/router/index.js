@@ -16,11 +16,13 @@ const routes = [
         path: '/user/login/',
         name: 'login',
         component: Login,
+        meta: { authPage: true }
     },
     {
         path: '/user/register/',
         name: 'register',
         component: Register,
+        meta: { authPage: true }
     },
     {
         path: '/user/profile/',
