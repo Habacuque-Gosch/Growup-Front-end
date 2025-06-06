@@ -6,7 +6,8 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    gap: 1em;
+    gap: 1.5em;
+    margin-top: 2.5em;
 }
 
 .div-list-courses-item {
@@ -22,4 +23,5 @@
     padding: 1em;
     background-color: var(--texto);
     border-radius: var(--border-rad);
+    width: 55%;
 }
