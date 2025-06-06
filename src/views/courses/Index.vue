@@ -1,14 +1,13 @@
+<script setup>
+    import Search from '@/components/index_courses/search.vue';
+</script>
+
 
 <template>
 
     <main class="main-index-courses">
-        <div>
-            <form action="" class="" method="POST">
-                <input type="text" name="palavra" id="palavra" class="form-control" placeholder="Pesquise pelo título, categoria ou descrição de um post" aria-label="Recipient's username" aria-describedby="button-addon2" required>
-                <button class="btn btn-outline-secondary" id="button-addon2">Buscar </button>
-            </form>
-        </div>
-        <hr>
+
+        <Search></Search>
 
         <div v-if="apiData != ''" class="div-list-courses">
 
