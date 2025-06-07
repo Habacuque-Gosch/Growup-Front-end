@@ -13,12 +13,17 @@
 
             <div class="div-list-courses-item" v-for="course in apiData" :key="course.id">
                 <div class="div-card-course">
-                    <RouterLink :to="{name: 'course_details', params: {id: course.id}}">Nome do curso: {{ course.title }}</RouterLink>
-                    <p>Link: {{ course.slug }}</p>
-                    <RouterLink :to="{name: 'course_details', params: {id: course.id}}" class="btn btn-success"><i class="bi bi-eye"></i>Ver curso</RouterLink>
-                    <RouterLink :to="{name: 'edit_course', params: {id: course.id}}" class="btn btn-primary"><i class="bi bi-pencil"></i>Editar curso</RouterLink>
-                    <button @click="deleteCourse(course.id)" class="btn btn-danger"><i class="bi bi-trash"></i>Deletar curso</button>
-                    <button @click="saveCourse(course.id)" class="btn btn-primary"><i class="bi bi-bookmark"></i>Salvar curso</button>
+                    <RouterLink :to="{name: 'course_details', params: {id: course.id}}">{{ course.title }}</RouterLink>
+                    <p>{{ course.content }}</p>
+                    <p>Duração: {{ course.duration }}H | Nível:  {{ course.level }}</p>
+
+                    <div class="d-flex align-items-center gap-4 mt-4">
+                        <RouterLink :to="{name: 'course_details', params: {id: course.id}}" class="btn btn-success mr-3"><i class="bi bi-eye"></i>Ver curso</RouterLink>
+                        <!-- <RouterLink :to="{name: 'edit_course', params: {id: course.id}}" class="btn btn-primary"><i class="bi bi-pencil"></i>Editar curso</RouterLink>
+                        <button @click="deleteCourse(course.id)" class="btn btn-danger"><i class="bi bi-trash"></i>Deletar curso</button> -->
+                        <button @click="saveCourse(course.id)" class="btn btn-primary"><i class="bi bi-bookmark"></i>Salvar curso</button>
+                    </div>
+
                 </div>
             </div>
             

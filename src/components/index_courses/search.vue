@@ -112,13 +112,13 @@
 
                 <article class="filter-cat-desk">
 
-                    <h2>Nível de experiência</h2>
+                    <h2>Nível</h2>
 
                     <select class="select-filter" name="level">
-                        <option value="">-- Selecione uma data --</option>
-                        <option value="JUNIOR">Júnior</option>
-                        <option value="PLENO">Pleno</option>
-                        <option value="SENIOR">Sênior</option>
+                        <option value="">-- Selecione um nível --</option>
+                        <option value="INICIANTE">Iniciante</option>
+                        <option value="INTERMEDIÁRIO">Intermediário</option>
+                        <option value="AVANÇADO">Avançado</option>
                     </select>
                 </article>
                 
