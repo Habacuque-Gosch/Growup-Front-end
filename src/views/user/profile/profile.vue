@@ -8,8 +8,8 @@
             <div class="d-flex align-items-center mb-3">
             <div class="profile-avatar me-3">
                 <img
-                v-if="url_photo"
-                :src="url_photo"
+                v-if="profile_data.photo"
+                :src="profile_data.photo"
                 alt="Foto do usuário"
                 class="rounded-circle img-fluid"
                 width="100px" />
@@ -55,7 +55,7 @@
 <script>
 import { baseAPI } from '@/api/axios_api'
 import { useUserStore } from '@/store/user'
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export default {
     setup() {
@@ -63,12 +63,6 @@ export default {
         const profile_data = userStore.profile
         const courses = profile_data.courses_save || []
         const coursesData = ref([])
-
-        const photo_user = computed(() => {
-            if (!profile_data?.photo) return null
-            return import.meta.env.VITE_API_BASE_URL + profile_data.photo
-        })
-        let url_photo = photo_user.value
 
         onMounted(async () => {
         if (courses.length > 0) {
@@ -84,7 +78,6 @@ export default {
         })
 
         return {
-            url_photo,
             profile_data,
             coursesData
         }
