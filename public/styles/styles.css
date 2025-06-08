@@ -3,30 +3,19 @@
 
 
 /* === MODULE: HOME, LOGIN AND REGISTER === */
-/* @import url(users/notify/my_notifications_desk.css);
-@import url(users/notify/my_notifications.css); */
 @import url(users/home/home_desk.css);
 @import url(users/home/home.css);
 @import url(users/login/login_desk.css);
 @import url(users/login/login.css);
 @import url(users/register/register_desk.css);
 @import url(users/register/cadastro.css);
-/* @import url(users/terms_and_privacy/index.css); */
-
 
 /* === MODULE: INDEX_COURSES === */
 @import url(courses/index.css);
 
 /* === MODULE: PROFILE_USER AND SETTINGS === */
-/* @import url(users/profile/my_finances_desk.css);
-@import url(users/profile/my_finances.css);
-@import url(users/profile/profile_desk.css);
-@import url(users/profile/profile.css); */
-
-/* @import url(users/settings/settings.css); */
 
 /* === MODULE: BODY_EMAILS === */
-/* @import url(emails/welcome.css); */
 
 /* === MODULE: PARTIALS === */
 @import url(partials/forms/forms_base_desk.css);
