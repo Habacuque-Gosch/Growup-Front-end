@@ -15,7 +15,7 @@
                 <div class="div-card-course">
                     <RouterLink :to="{name: 'course_details', params: {id: course.id}}">{{ course.title }}</RouterLink>
                     <p>{{ course.content }}</p>
-                    <p>Duração: {{ course.duration }}H | Nível:  {{ course.level }}</p>
+                    <p>Duração: {{ course.duration }}H | Nível:  {{ course.level }} | Categoria: {{ course.category }}</p>
 
                     <div class="d-flex align-items-center gap-4 mt-4">
                         <RouterLink :to="{name: 'course_details', params: {id: course.id}}" class="btn btn-success mr-3"><i class="bi bi-eye"></i>Ver curso</RouterLink>
