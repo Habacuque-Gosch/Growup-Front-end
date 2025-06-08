@@ -13,6 +13,13 @@
                     <RouterLink to="/index/" class="nav-link active" >Início</RouterLink>
                 </li>
                 <li class="nav-item">
+                    <RouterLink to="/index/" class="nav-link active" >Sobre</RouterLink>
+                </li>
+
+                <li class="nav-item">
+                    <RouterLink to="/index/" class="nav-link active" >Ajuda</RouterLink>
+                </li>
+                <li class="nav-item">
                     <RouterLink to="/index/" class="nav-link active" ><i class="bi bi-bell-fill"></i></RouterLink>
                 </li>
                 <li class="nav-item dropdown">

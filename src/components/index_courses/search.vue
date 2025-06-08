@@ -98,20 +98,6 @@
 
                 <article class="filter-cat-desk">
 
-                    <h2>Data de publicação</h2>
-
-                    <select class="select-filter" name="date_job">
-                        <option value="">-- Selecione uma data --</option>
-                        <option value="24">Menos de 24 horas atrás</option>
-                        <option value="168">7 dias atrás</option>
-                    </select>
-
-                </article>
-
-                <hr>
-
-                <article class="filter-cat-desk">
-
                     <h2>Nível</h2>
 
                     <select class="select-filter" name="level">

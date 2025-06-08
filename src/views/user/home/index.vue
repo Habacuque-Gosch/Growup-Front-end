@@ -1,9 +1,4 @@
 
-<!-- <script setup>
-
-</script> -->
-
-
 <template>
 
     <main class="main-home">
@@ -45,4 +40,19 @@
     }
 </style>
 
+<script setup>
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/store/auth'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+onMounted(() => {
+    if (authStore.isAuthenticated) {
+        router.replace({ name: 'index' })
+    }
+})
+
+</script>
 
