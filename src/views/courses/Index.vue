@@ -31,6 +31,19 @@
 
         <div v-else>Nenhum curso encontrado</div>
 
+
+    <ul class="pagination">
+        <li v-if="currentPage > 1" class="page-item">
+            <a class="page-link" @click="changePage(currentPage - 1)">Anterior</a>
+        </li>
+        <li v-for="page in pages" :key="page" class="page-item" :class="{ active: page === currentPage }">
+            <a class="page-link" @click="changePage(page)">{{ page }}</a>
+        </li>
+        <li v-if="currentPage < pages.length" class="page-item">
+            <a class="page-link" @click="changePage(currentPage + 1)">Próxima</a>
+        </li>
+    </ul>
+
     </main>
 
 </template>
@@ -40,63 +53,61 @@ import { baseAPI } from '@/api/axios_api'
 import { useUserStore } from '@/store/user'
 
 const store = useUserStore()
-// const loading = ref(false)
-// const successMessage = ref('')
-// const errorMessage = ref('')
 
 export default {
     data() {
-        let profile_user = store.profile || null
-
-        async function saveCourse(courseId) {
-            // loading.value = true
-            // successMessage.value = ''
-            // errorMessage.value = ''
-
-            try {
-                const response = await baseAPI.post('profiles/save-course/', {
-                course_id: courseId
-                })
-                // successMessage.value = 'Curso salvo com sucesso!'
-                console.log(response.data)
-            } catch (error) {
-                // errorMessage.value = 'Erro ao salvar curso.'
-                console.error(error)
-            }
-            // finally {
-            //     // loading.value = false
-            // }
-        }
-
-        async function deleteCourse(courseId) {
-
-            try {
-                const response = await baseAPI.delete(`courses/${courseId}/`)
-                // successMessage.value = 'Curso salvo com sucesso!'
-                console.log(response.data)
-            } catch (error) {
-                // errorMessage.value = 'Erro ao salvar curso.'
-                console.error(error)
-            }
-
-        }
-
         return {
             apiData: [],
-            profile_user,
-            saveCourse,
-            deleteCourse
+            countPage: 0,
+            currentPage: 1,
+            itemsPerPage: 20,
+            profile_user: store.profile || null,
+        }
+    },
+    computed: {
+        pages() {
+            const totalPages = Math.ceil(this.countPage / this.itemsPerPage)
+            return Array.from({ length: totalPages }, (_, i) => i + 1)
+        }
+    },
+    methods: {
+        async loadCourses(page = 1) {
+            try {
+                const response = await baseAPI.get(`/courses/?page=${page}`)
+                this.apiData = response.data.results
+                this.countPage = response.data.count
+                this.currentPage = page
+                this.itemsPerPage = response.data.results.length
+            } catch (err) {
+                console.error('Erro ao carregar cursos:', err)
+            }
+        },
+        changePage(page) {
+            if (page !== this.currentPage && page >= 1 && page <= this.pages.length) {
+                this.loadCourses(page)
+            }
+        },
+        async saveCourse(courseId) {
+            try {
+                const response = await baseAPI.post('profiles/save-course/', {
+                    course_id: courseId
+                })
+                console.log(response.data)
+            } catch (error) {
+                console.error(error)
+            }
+        },
+        async deleteCourse(courseId) {
+            try {
+                const response = await baseAPI.delete(`courses/${courseId}/`)
+                console.log(response.data)
+            } catch (error) {
+                console.error(error)
+            }
         }
     },
     mounted() {
-
-        baseAPI.get('/courses/')
-        .then(res => {
-            this.apiData = res.data.results
-        })
-        .catch(err => {
-            console.log('erro get courses API: ' + err)
-        })
+        this.loadCourses()
     }
 }
 </script>
