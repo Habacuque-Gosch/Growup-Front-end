@@ -12,6 +12,7 @@
 
 /* === MODULE: INDEX_COURSES === */
 @import url(courses/index.css);
+@import url(courses/details.css);
 
 /* === MODULE: PROFILE_USER AND SETTINGS === */
 

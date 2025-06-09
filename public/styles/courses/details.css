@@ -1,0 +1,31 @@
+
+
+.main-details-course {
+    background-color: red;
+    height: auto;
+}
+
+.section-details-course {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.div-category-course {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+    height: 100px;
+    width: 100%;
+    background-color: rebeccapurple;
+    padding-left: 10em;
+    color: var(--texto);
+    gap: 1em;
+}
+
+.div-category-course i {
+    font-size: 3em;
+}
