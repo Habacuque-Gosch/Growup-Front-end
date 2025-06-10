@@ -4,7 +4,7 @@
         
         <form class="form-de-busca" action="">
 
-            <input class="input-busca" type="text" name="buscar" id="buscar" placeholder="Pesquisar">
+            <input class="input-busca" type="text" name="buscar" id="buscar" placeholder="Pesquisar" v-model="searchQuery" @input="emitSearch">
 
             <button class="btn-filtro" type="button" onclick="exibir_filtro()">
                 <i class="bi bi-filter-right"></i>
@@ -118,37 +118,30 @@
 
 </template>
 
-<script>
+<script setup>
+    import { ref, onMounted } from 'vue'
+    // import { baseAPI } from '@/api/axios_api'
 
-    // function exibir_filtro() {
+    const emit = defineEmits(['search-updated'])
 
-    //     var id_filtro = document.getElementById("filtro_id_mobile")
+    const searchQuery = ref('')
+    // const selectedCategory = ref('')
+    // const categories = ref([])
 
-    //     id_filtro.style.display = "flex"
+    const emitSearch = () => {
+        emit('search-updated', {
+            search: searchQuery.value
+            // category: selectedCategory.value
+        })
+    }
 
-    // }
-
-    // function fechar_filtro() {
-
-    // var id_filtro = document.getElementById("filtro_id_mobile")
-
-    // id_filtro.style.display = "none"
-
-    // }
-
-    // // const value_distancia = document.querySelector("#value-distancia-filtro");
-    // // const input_distancia = document.querySelector("#value-distancia-filtro-mobile");
-    // const value_preco = document.querySelector("#value-preco-filtro");
-    // const input_preco = document.querySelector("#value-preco-filtro-mobile");
-
-    // // value_distancia.textContent = input_distancia.value;
-    // // input_distancia.addEventListener("input", (event) => {
-    // // value_distancia.textContent = event.target.value;
-    // // });
-
-    // value_preco.textContent = input_preco.value;
-    // input_preco.addEventListener("input", (event) => {
-    // value_preco.textContent = event.target.value;
-    // });
-
+    // onMounted(() => {
+    //     baseAPI.get('/categories/')
+    //         .then(res => {
+    //             categories.value = res.data
+    //         })
+    //         .catch(err => {
+    //             console.log('Erro ao carregar categorias:', err)
+    //         })
+    // })
 </script>

@@ -23,7 +23,7 @@
                     <div v-else class="mt-5">
                         <h3 class="mb-4">Conteúdo do Curso</h3>
 
-                        <div class="accordion" id="modulesAccordion">
+                        <div class="accordion w-100" id="modulesAccordion">
                             <div class="accordion-item" v-for="(module, moduleIndex) in courseData.modules" :key="module.id">
                                 <h2 class="accordion-header" :id="`heading${module.id}`">
                                     <button
@@ -50,14 +50,20 @@
 
                                             <div v-for="content in lesson.contents" :key="content.id" class="mb-3 ms-3">
                                                 <div v-if="content.content_type === 'TEXT'">
-                                                    <p><i class="bi bi-file-text me-2"></i>{{ content.text }}</p>
+                                                    <p style="word-break: break-word;"><i class="bi bi-file-text me-2"></i>{{ content.text }}</p>
                                                 </div>
 
                                                 <div v-else-if="content.content_type === 'VIDEO'">
-                                                    <video controls class="w-100 rounded shadow-sm">
-                                                        <source :src="content.video_url" type="video/mp4" />
-                                                        Seu navegador não suporta vídeo.
-                                                    </video>
+                                                    <a href="{{ content.video_url  }}">Link do video</a>
+                                                    <br>
+                                                    <iframe class="ratio ratio-16x9" 
+                                                        :src="content.video_url" 
+                                                        frameborder="0" 
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                        allowfullscreen 
+                                                        width="700px" 
+                                                        height="500px">
+                                                    </iframe>
                                                 </div>
 
                                                 <div v-else>
@@ -87,7 +93,7 @@ import { baseAPI } from '@/api/axios_api'
 import { ref, onMounted } from 'vue'
 
 const courseRoute = useRouter()
-const courseId = courseRoute.currentRoute.value.params.id
+const courseId = courseRoute.currentRoute.value.params.slug
 const courseData = ref({})
 
 // GET COURSE DETAIL
