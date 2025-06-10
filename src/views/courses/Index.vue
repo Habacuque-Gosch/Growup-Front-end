@@ -7,7 +7,7 @@
 
     <main class="main-index-courses">
 
-        <Search></Search>
+        <Search @search-updated="handleSearchUpdated"></Search>
 
         <div v-if="apiData != ''" class="div-list-courses">
 
@@ -53,9 +53,7 @@ import { baseAPI } from '@/api/axios_api'
 import { useUserStore } from '@/store/user'
 
 const store = useUserStore()
-// const searchQuery = ref('')
-// const selectedCategory = ref('')
-// const categories = ref([])
+
 
 export default {
     data() {
@@ -65,6 +63,8 @@ export default {
             currentPage: 1,
             itemsPerPage: 20,
             profile_user: store.profile || null,
+            currentSearch: '',
+            currentCategory: '',
         }
     },
     computed: {
@@ -75,8 +75,18 @@ export default {
     },
     methods: {
         async loadCourses(page = 1) {
+
+            let url = `/courses/?page=${page}`
+
+            if (this.currentSearch) {
+                url += `&search=${this.currentSearch}`
+            }
+            if (this.currentCategory) {
+                url += `&category=${this.currentCategory}`
+            }
+
             try {
-                const response = await baseAPI.get(`/courses/?page=${page}`)
+                const response = await baseAPI.get(url)
                 this.apiData = response.data.results
                 this.countPage = response.data.count
                 this.currentPage = page
@@ -85,6 +95,13 @@ export default {
                 console.error('Erro ao carregar cursos:', err)
             }
         },
+
+        handleSearchUpdated({ search, category }) {
+            this.currentSearch = search
+            this.currentCategory = category
+            this.loadCourses(1) // Reinicia para a página 1 quando aplicar o filtro
+        },
+
         changePage(page) {
             if (page !== this.currentPage && page >= 1 && page <= this.pages.length) {
                 this.loadCourses(page)

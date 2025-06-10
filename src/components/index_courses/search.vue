@@ -80,38 +80,37 @@
 
         <div class="filter-desk">
 
-            <form action="" method="get" class="form-filter-jobs">
+            <select v-model="selectedCategory" @change="emitSearch">
+                <option value="">Todas as categorias</option>
+                <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
+            </select>
 
+            <article class="filter-cat-desk">
 
-                <article class="filter-cat-desk">
+                <h2>Categorias</h2>
 
-                    <h2>Categorias</h2>
+                <select class="select-filter" name="category">
+                    <option value="">-- Selecione uma categoria --</option>
+                    <option value="TI E PROGRAMACAO">TI e Programação</option>
+                </select>
 
-                    <select class="select-filter" name="category">
-                        <option value="">-- Selecione uma categoria --</option>
-                        <option value="TI E PROGRAMACAO">TI e Programação</option>
-                    </select>
+            </article>
 
-                </article>
+            <hr>
 
-                <hr>
+            <article class="filter-cat-desk">
 
-                <article class="filter-cat-desk">
+                <h2>Nível</h2>
 
-                    <h2>Nível</h2>
-
-                    <select class="select-filter" name="level">
-                        <option value="">-- Selecione um nível --</option>
-                        <option value="INICIANTE">Iniciante</option>
-                        <option value="INTERMEDIÁRIO">Intermediário</option>
-                        <option value="AVANÇADO">Avançado</option>
-                    </select>
-                </article>
+                <select class="select-filter" name="level">
+                    <option value="">-- Selecione um nível --</option>
+                    <option value="INICIANTE">Iniciante</option>
+                    <option value="INTERMEDIÁRIO">Intermediário</option>
+                    <option value="AVANÇADO">Avançado</option>
+                </select>
                 
-                <button class="base-btn-forms">Filtrar</button>
-
-            </form>
-
+            </article>
+                
         </div>
 
     </div> 
@@ -119,29 +118,30 @@
 </template>
 
 <script setup>
+
     import { ref, onMounted } from 'vue'
-    // import { baseAPI } from '@/api/axios_api'
+    import { baseAPI } from '@/api/axios_api'
 
     const emit = defineEmits(['search-updated'])
 
     const searchQuery = ref('')
-    // const selectedCategory = ref('')
-    // const categories = ref([])
+    const selectedCategory = ref('')
+    const categories = ref([])
 
     const emitSearch = () => {
         emit('search-updated', {
-            search: searchQuery.value
-            // category: selectedCategory.value
+            search: searchQuery.value,
+            category: selectedCategory.value
         })
     }
 
-    // onMounted(() => {
-    //     baseAPI.get('/categories/')
-    //         .then(res => {
-    //             categories.value = res.data
-    //         })
-    //         .catch(err => {
-    //             console.log('Erro ao carregar categorias:', err)
-    //         })
-    // })
+    onMounted(() => {
+        baseAPI.get('/courses/categories/')
+            .then(res => {
+                categories.value = res.data
+            })
+            .catch(err => {
+                console.log('Erro ao carregar categorias:', err)
+            })
+    })
 </script>
