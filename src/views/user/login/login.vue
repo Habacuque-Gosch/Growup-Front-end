@@ -2,17 +2,12 @@
 
     <main class="section-login-form">
 
-        <!-- <div class="text-center mb-3">
-            <p>Sign in with:</p>
-
-            <a data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="bi bi-google"></i>
-            </a>
-            <p class="text-center">or:</p>
-
-        </div> -->
+        <div class="logo-e-contexto">
+            <img src="/assets/id_app/logo.svg" alt="">
+            <p class="contexto-home">OpenKnowlodge</p>
+        </div>
         <p>{{ errorMessage }}</p>
-        <form @submit.prevent="loginFunction" class="section-login-form">
+        <form @submit.prevent="loginFunction" class="section-login-form mt-5">
 
             <div class="form-group-fields">
                 <label class="form-label-fields" for="loginName">Email or username</label>
