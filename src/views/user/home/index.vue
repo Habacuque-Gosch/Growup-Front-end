@@ -6,11 +6,11 @@
         <section class="section-home">
 
             <div class="logo-e-contexto">
-                <img class="logo-home" src="" alt="">
-                <p class="contexto-home">Encontre seu próximo projeto.</p>
+                <img class="logo-home" src="/assets/id_app/logo.svg" alt="">
+                <p class="contexto-home">OpenKnowlodge</p>
             </div>
 
-            <div class="botoes-login-ou-cadastro">
+            <div class="botoes-login-ou-cadastro mt-5">
 
                 <RouterLink :to="{name: 'register'}" class="botao-criar-conta">Register</RouterLink>
                 <RouterLink :to="{name: 'login'}" class="botao-criar-conta" style="background-color: #1855ab00; color: #ffff; border: solid 1px #ffff; margin-bottom: 10px;">Login</RouterLink>
