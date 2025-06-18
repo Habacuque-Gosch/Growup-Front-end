@@ -49,15 +49,15 @@
         width: var(--screen-size-mobile);
     }
 
-    .form-group-campos textarea {
+    .form-group-fields textarea {
         width: var(--screen-size-mobile);
         height: 85%;
     }
-    .form-group-campos select {
+    .form-group-fields select {
         width: 89%;
     }
 
-    .campo-user {
+    .field-user {
         width: var(--screen-size-mobile);
         padding-left: 18px;
         border-radius: 10px;
