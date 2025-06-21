@@ -30,6 +30,11 @@ const routes = [
         component: Profile,
         meta: { requiresAuth: true }
     },
+    {
+        path: '/user/courses-saved/',
+        name: 'courses_saved',
+        component: () => import('../views/user/profile/courses_save.vue')
+    },
 
     {
         path: '/index/',
@@ -46,13 +51,13 @@ const routes = [
     {
         path: '/course/add-course/',
         name: 'add_course',
-        component: () => import('../views/courses/AddCourse.vue'),
+        component: () => import('../views/admin/courses/AddCourse.vue'),
         meta: { requiresAuth: true }
     },
     {
         path: '/course/edit-course/:id/',
         name: 'edit_course',
-        component: () => import('../views/courses/EditCourse.vue'),
+        component: () => import('../views/admin/courses/EditCourse.vue'),
         meta: { requiresAuth: true }
     },
 ]
