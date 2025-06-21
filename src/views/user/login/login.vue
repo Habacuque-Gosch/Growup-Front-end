@@ -10,10 +10,10 @@
         <form @submit.prevent="loginFunction" class="section-login-form mt-5">
 
             <div class="form-group-fields">
-                <label class="form-label-fields" for="loginName">Email or username</label>
+                <label class="form-label-fields" for="loginName">Email</label>
                 <input type="text" class="field-user" placeholder="Digite seu email" v-model="userData.username"/>
 
-                <label class="form-label-fields" for="loginPassword">Password</label>
+                <label class="form-label-fields" for="loginPassword">Senha</label>
                 <input type="password" class="field-user" placeholder="Digite sua senha" id="loginPassword" v-model="userData.password"/>
             </div>
 
@@ -22,8 +22,8 @@
         </form>
 
         <div class="d-flex mt-4 flex-column align-items-center">
-            <RouterLink :to="{name: 'register'}" class="" >Forget password?</RouterLink>
-            <RouterLink :to="{name: 'register'}" class="" >Register</RouterLink>
+            <RouterLink :to="{name: 'register'}" class="" >Esqueceu a senha?</RouterLink>
+            <RouterLink :to="{name: 'register'}" class="" >Cadastrar</RouterLink>
         </div>
 
     </main>
